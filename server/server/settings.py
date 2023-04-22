@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-with open(BASE_DIR + '\server\config.json', 'r') as config:
+with open(str(BASE_DIR) + '/server/config.json', 'r') as config:
     obj = json.load(config)
 SECRET_KEY = obj["API_KEY"]
 
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "books.apps.BooksConfig",
 ]
 
 MIDDLEWARE = [
